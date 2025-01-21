@@ -1,5 +1,5 @@
 const adviceNumber = document.getElementById('advice-ID')
-const adviceSection = document.getElementById('advice-section')
+const adviceSection = document.getElementById('advice')
 
 document.getElementById('diceButton').addEventListener('click', () => printAdvice())
 
@@ -14,6 +14,6 @@ async function printAdvice() {
     const adviceID = searchedAdvice.slip.id
     const advice = searchedAdvice.slip.advice
 
-    adviceNumber.innerHTML = `Advice #${adviceID}`
-    adviceSection.innerHTML = `<p>"${advice}"</p>`
+    adviceNumber.innerText = `Advice #${adviceID}`
+    adviceSection.innerText = `"${advice}"`
 }
