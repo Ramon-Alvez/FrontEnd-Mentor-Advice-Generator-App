@@ -31,6 +31,7 @@ body {
     gap: 2.5rem;
 
     background-color: var(--CardBackground);
+    box-shadow: 0 0rem 1.5rem -1rem var(--CardShadow);
     font-size: 2.8rem;
 
     position: relative;
@@ -78,4 +79,7 @@ body {
 }
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+.attribution a:hover { 
+    color: hsl(228, 53%, 59%); 
 }
