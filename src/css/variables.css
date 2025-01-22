@@ -4,6 +4,9 @@
 
     --FontColor: hsl(193, 38%, 86%);
     --PrimaryColor: hsl(150, 100%, 66%);
+    --loading1: hsl(150, 100%, 66%);
+    --loading2: hsla(150, 100%, 66%, 0.7);
+    --loading3: hsla(150, 100%, 66%, 0.4);
 
     /* ### Neutral */
 

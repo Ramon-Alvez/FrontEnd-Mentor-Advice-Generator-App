@@ -11,9 +11,11 @@ This is a solution to the [Advice generator app challenge on Frontend Mentor](ht
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
+    - [Update 22/01/2025](#update-22.01.2025)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
 
 ## Overview 🔭
@@ -104,6 +106,66 @@ adviceUpdateButton.addEventListener("click", getAdvice);
 getAdvice();
 ```
 
+#### Update 22.01.2025
+
+Yesterday when I post my solution, Jay Khatri sent me a feedback with improvements I could make on the code, I decided to do what him told me and that's why this Update is comming. 
+
+First I made a message in the advice container telling the user to "click the button" to generate an advice; 
+
+![Initial message](./src/readme/message.png)
+
+Second I improve my function with "try" and "catch" and disabled the button to not overcharge the server with multiple API calls; 
+
+```js
+async function searchAdvice() {
+    const url = "https://api.adviceslip.com/advice"
+    const response = await fetch(url)
+    
+    if (!response.ok) throw new Error("An error occurred while trying to fetch information from the API");
+
+    return await response.json() 
+}
+
+async function printAdvice() {
+  diceButton.disabled = true
+
+  try {
+    ...
+  }
+  catch (error) {
+    console.error("Error trying to fetch API information", error);
+  }
+  finally {
+    diceButton.disabled = false
+  }
+}
+```
+
+And at last I made a simple loading screen when the API generate the advices, I really don't know how to do animations but I pretend to study this too.
+
+```css
+#card #loading {
+    position: relative;
+    top: -2rem;
+    width: 4rem;
+    height: 4rem;
+    border: 0.8rem dotted var(--loading1);
+    border-right-color: var(--loading2);
+    border-top-color: var(--loading3);
+    border-radius: 50%;
+
+    animation: loading 2s infinite linear;
+}
+@keyframes loading {
+    to {
+        transform: rotate(1turn);
+    }
+}
+#card #loading.hidden {
+    display: none;
+}
+```
+
 ### Continued development 🚀
 
 I just finished my JS advanced course but there are still other topics missing regarding js, such as jest, react, redux, etc... 
@@ -119,3 +181,7 @@ When I finish this, I will came here to do the other challenges.
 - GitHub - [Ramon Alvez](https://github.com/Ramon-Alvez/Frontend-Mentor-HTML-CSS-Intermediate-ChatApp-CSS-illustration)
 - Frontend Mentor - [@Ramon Alvez](https://www.frontendmentor.io/solutions/-html5-e-css-22-1-intermediate-chat-app-illustration-qRIT2_JeKy)
 - LinkedIn - [@Ramon Alvez](https://www.linkedin.com/in/ramon-alvez/)
+
+## Acknowledgments 🔎
+
+Thank you [Jay Khatri](https://www.frontendmentor.io/profile/khatri2002), I really really apreciate your help!
